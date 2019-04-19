@@ -1,0 +1,17 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+    <form method='post' class="add-text-form" id="add-text-form" action="{% url 'chat:chat' %}" autocomplete='off'>
+    {% load static %}
+    {% csrf_token %}
+        <div class="container">
+            <div class="message_container" id="message_container">
+
+            </div>
+
+            <input type="text" placeholder="Message" id="messages">
+            <input id='user_id' type="hidden" value="{{ user.id }}">
+            <input type="submit" value="Send">
+        </div>
+    </form>
+{% endblock content %}
